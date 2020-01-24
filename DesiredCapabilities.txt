@@ -1,0 +1,9 @@
+DesiredCapabilities capabilities = new DesiredCapabilities();
+String NodeA = System.getProperty("nodeName", "");
+if (!NodeA.trim().isEmpty()) {
+capabilities.setCapability("applicationName",NodeA);
+}
+capabilities.setBrowserName("chrome");
+capabilities.setPlatform(Platform.WINDOWS);
+String huburl="http://192.168.1.54:4444/wd/hub";
+RemoteWebDriver Adriver = new RemoteWebDriver(new URL(huburl), capabilities);
